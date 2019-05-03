@@ -33,8 +33,14 @@ def printBoard(board):
 
 
 def isWin(bo, le):
-	return (bo[7] == le and bo [8] == le and bo == [9]) or
-	(bo[4] == le and bo[5] == le and bo[6] == le) or
+	return ((bo[7] == le and bo[8] == le and bo[9] == le) or
+	(bo[4] == le and bo[5] == le and bo[6] == le) or # across the middle
+    (bo[1] == le and bo[2] == le and bo[3] == le) or # across the bottom
+    (bo[7] == le and bo[4] == le and bo[1] == le) or # down the left side
+    (bo[8] == le and bo[5] == le and bo[2] == le) or # down the middle
+    (bo[9] == le and bo[6] == le and bo[3] == le) or # down the right side
+    (bo[7] == le and bo[5] == le and bo[3] == le) or # diagonal
+    (bo[9] == le and bo[5] == le and bo[1] == le)) # diagonal
 	
 
 def compMove():
@@ -45,13 +51,18 @@ def selectRandom(board):
 	pass
 
 def isFull(board):
-	pass
+	if board.count(' ') > 1:  # Since we always have one blank element in board we must use > 1
+        return False
+    else:
+        return True
 
 def main():
 	pass
 
 
-main()
+def main()
+	printHeader()
+
 
 
 
