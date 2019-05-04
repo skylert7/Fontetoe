@@ -7,39 +7,69 @@ import random
 # Defining the board
 # Tic-tac-toe 3x3
 dimension = 3
-my_board = [[[" " for col in range(dimension)] for col in range(dimension)] for row in range(dimension)]
+my_board = [[[' ' for col in range(dimension)] for col in range(dimension)] for row in range(dimension)]
 
 
 
-def win2D(my_board):
+def win2D(symbol):
+    if ( (my_board[0][0][0] == my_board[0][1][0] == my_board[0][2][0] == symbol)  # Flat Horizontal
+    or (my_board[0][0][1] == my_board[0][1][1] == my_board[0][2][1] == symbol)  # Flat Horizontal
+    or (my_board[0][2][2] == my_board[0][2][2] == my_board[0][2][2] == symbol)  # Flat Horizontal
+    or (my_board[1][0][0] == my_board[1][1][0] == my_board[1][2][0] == symbol)  # Flat Horizontal
+    or (my_board[1][0][1] == my_board[1][1][1] == my_board[1][2][1] == symbol)  # Flat Horizontal
+    or (my_board[1][2][2] == my_board[1][2][2] == my_board[1][2][2] == symbol)  # Flat Horizontal
+    or (my_board[2][0][0] == my_board[2][1][0] == my_board[2][2][0] == symbol)  # Flat Horizontal
+    or (my_board[2][0][1] == my_board[2][1][1] == my_board[2][2][1] == symbol)  # Flat Horizontal
+    or (my_board[2][2][2] == my_board[2][2][2] == my_board[2][2][2] == symbol)  # Flat Horizontal
+
+    or (my_board[0][0][0] == my_board[0][0][1] == my_board[0][0][2] == symbol)  # Flat Vertical
+    or (my_board[0][1][0] == my_board[0][1][1] == my_board[0][1][2] == symbol)  # Flat Vertical
+    or (my_board[0][2][0] == my_board[0][2][1] == my_board[0][2][2] == symbol)  # Flat Vertical
+    or (my_board[1][0][0] == my_board[1][0][1] == my_board[1][0][2] == symbol)  # Flat Vertical
+    or (my_board[1][1][0] == my_board[1][1][1] == my_board[1][1][2] == symbol)  # Flat Vertical
+    or (my_board[1][2][0] == my_board[1][2][1] == my_board[1][2][2] == symbol)  # Flat Vertical
+    or (my_board[2][0][0] == my_board[2][0][1] == my_board[2][0][2] == symbol)  # Flat Vertical
+    or (my_board[2][1][0] == my_board[2][1][1] == my_board[2][1][2] == symbol)  # Flat Vertical
+    or (my_board[2][2][0] == my_board[2][2][1] == my_board[2][2][2] == symbol)  # Flat Vertical
+
+    or (my_board[0][0][0] == my_board[0][1][1] == my_board[0][2][2] == symbol)  # Flat Diagonal
+    or (my_board[1][0][0] == my_board[1][1][1] == my_board[1][2][2] == symbol)  # Flat Diagonal
+    or (my_board[2][0][0] == my_board[2][1][1] == my_board[2][2][2] == symbol)  # Flat Diagonal
+    or (my_board[0][0][2] == my_board[0][1][1] == my_board[0][2][0] == symbol)  # Flat Diagonal
+    or (my_board[1][0][2] == my_board[1][1][1] == my_board[1][2][0] == symbol)  # Flat Diagonal
+    or (my_board[2][0][2] == my_board[2][1][1] == my_board[2][2][0] == symbol) ):  # Flat Diagonal
+        return True
     return False
 
-def win3D(my_board):
-    if ( (my_board[0][0][0] == my_board[1][0][0] == my_board[2][0][0])  # 3D Tower 0
-    or (my_board[0][1][0] == my_board[1][1][0] == my_board[2][1][0] ) # 3D Tower 1
-    or (my_board[0][2][0] == my_board[1][2][0] == my_board[2][2][0])  # 3D Tower 2
-    or (my_board[0][0][1] == my_board[1][0][1] == my_board[2][0][1])  # 3D Tower 3
-    or (my_board[0][1][1] == my_board[1][1][1] == my_board[2][1][1])  # 3D Tower 4
-    or (my_board[0][2][1] == my_board[1][2][1] == my_board[2][2][1])  # 3D Tower 5
-    or (my_board[0][0][2] == my_board[1][0][2] == my_board[2][0][2])  # 3D Tower 6
-    or (my_board[0][1][2] == my_board[1][1][2] == my_board[2][1][2])  # 3D Tower 7
-    or (my_board[0][2][2] == my_board[1][2][2] == my_board[2][2][2])  # 3D Tower 8
-    or (my_board[0][0][0] == my_board[1][0][1] == my_board[2][0][2])  # 3D Vertical Diagonal
-    or (my_board[2][0][0] == my_board[1][0][1] == my_board[0][0][2]) # 3D Vertical Diagonal
-    or (my_board[0][1][0] == my_board[1][1][1] == my_board[2][1][2])  # 3D Vertical Diagonal
-    or (my_board[2][1][0] == my_board[1][1][1] == my_board[0][1][2])  # 3D Vertical Diagonal
-    or (my_board[0][2][0] == my_board[1][2][1] == my_board[2][2][2])  # 3D Vertical Diagonal
-    or (my_board[2][2][0] == my_board[1][2][1] == my_board[0][2][2])  # 3D Vertical Diagonal
-    or (my_board[0][0][0] == my_board[1][1][0] == my_board[2][2][0])  # 3D Horizontal Diagonal
-    or (my_board[2][0][0] == my_board[1][1][0] == my_board[0][2][0]) # 3D Horizontal Diagonal
-    or (my_board[0][0][1] == my_board[1][1][1] == my_board[2][2][1])  # 3D Horizontal Diagonal
-    or (my_board[2][0][1] == my_board[1][1][1] == my_board[0][2][1])  # 3D Horizontal Diagonal
-    or (my_board[0][0][2] == my_board[1][1][2] == my_board[2][2][2])  # 3D Horizontal Diagonal
-    or (my_board[2][0][2] == my_board[1][1][2] == my_board[0][2][2])  # 3D Horizontal Diagonal
-    or (my_board[0][0][0] == my_board[1][1][1] == my_board[2][2][2])  # 3D Cross Diagonal
-    or (my_board[2][0][0] == my_board[1][1][1] == my_board[0][2][2])  # 3D Cross Diagonal
-    or (my_board[0][0][2] == my_board[1][1][1] == my_board[2][2][0])  # 3D Cross Diagonal
-    or (my_board[0][2][0] == my_board[1][1][1] == my_board[2][0][2]) ):  # 3D Cross Diagonal
+def win3D(symbol):
+    if ( (my_board[0][0][0] == my_board[1][0][0] == my_board[2][0][0] == symbol)  # 3D Tower 0
+    or (my_board[0][1][0] == my_board[1][1][0] == my_board[2][1][0] == symbol ) # 3D Tower 1
+    or (my_board[0][2][0] == my_board[1][2][0] == my_board[2][2][0] == symbol)  # 3D Tower 2
+    or (my_board[0][0][1] == my_board[1][0][1] == my_board[2][0][1] == symbol)  # 3D Tower 3
+    or (my_board[0][1][1] == my_board[1][1][1] == my_board[2][1][1] == symbol)  # 3D Tower 4
+    or (my_board[0][2][1] == my_board[1][2][1] == my_board[2][2][1] == symbol)  # 3D Tower 5
+    or (my_board[0][0][2] == my_board[1][0][2] == my_board[2][0][2] == symbol)  # 3D Tower 6
+    or (my_board[0][1][2] == my_board[1][1][2] == my_board[2][1][2] == symbol)  # 3D Tower 7
+    or (my_board[0][2][2] == my_board[1][2][2] == my_board[2][2][2] == symbol)  # 3D Tower 8
+
+    or (my_board[0][0][0] == my_board[1][0][1] == my_board[2][0][2] == symbol)  # 3D Vertical Diagonal
+    or (my_board[2][0][0] == my_board[1][0][1] == my_board[0][0][2] == symbol)  # 3D Vertical Diagonal
+    or (my_board[0][1][0] == my_board[1][1][1] == my_board[2][1][2] == symbol)  # 3D Vertical Diagonal
+    or (my_board[2][1][0] == my_board[1][1][1] == my_board[0][1][2] == symbol)  # 3D Vertical Diagonal
+    or (my_board[0][2][0] == my_board[1][2][1] == my_board[2][2][2] == symbol)  # 3D Vertical Diagonal
+    or (my_board[2][2][0] == my_board[1][2][1] == my_board[0][2][2] == symbol)  # 3D Vertical Diagonal
+
+    or (my_board[0][0][0] == my_board[1][1][0] == my_board[2][2][0] == symbol)  # 3D Horizontal Diagonal
+    or (my_board[2][0][0] == my_board[1][1][0] == my_board[0][2][0] == symbol)  # 3D Horizontal Diagonal
+    or (my_board[0][0][1] == my_board[1][1][1] == my_board[2][2][1] == symbol)  # 3D Horizontal Diagonal
+    or (my_board[2][0][1] == my_board[1][1][1] == my_board[0][2][1] == symbol)  # 3D Horizontal Diagonal
+    or (my_board[0][0][2] == my_board[1][1][2] == my_board[2][2][2] == symbol)  # 3D Horizontal Diagonal
+    or (my_board[2][0][2] == my_board[1][1][2] == my_board[0][2][2] == symbol)  # 3D Horizontal Diagonal
+
+    or (my_board[0][0][0] == my_board[1][1][1] == my_board[2][2][2] == symbol)  # 3D Cross Diagonal
+    or (my_board[2][0][0] == my_board[1][1][1] == my_board[0][2][2] == symbol)  # 3D Cross Diagonal
+    or (my_board[0][0][2] == my_board[1][1][1] == my_board[2][2][0] == symbol)  # 3D Cross Diagonal
+    or (my_board[0][2][0] == my_board[1][1][1] == my_board[2][0][2] == symbol) ):  # 3D Cross Diagonal
         return True
     return False
 
@@ -47,87 +77,163 @@ def printHeader():
     print("""Welcome to Tic Tac Toe!""")
 
 def playerOne():
-    print('Please enter position you want to put X: ')
-    pos = input('Please enter position you want to put X: ')
-
-def insertX(layer, pos):
-
+    pos = input('Please enter position you want to put X (1-9): ')
+    pos = int(pos)
+    pos = pos - 1
+    if isEmptyLayerOne(pos):
+        insertX(0, pos)
+        return True
+    elif isEmptyLayerTwo(pos):
+        insertX(1, pos)
+        return True
+    elif isEmptyLayerThree(pos):
+        insertX(2, pos)
+        return True
+    return False # All full
 
 def playerTwo():
-    print('Please enter position you want to put O: ')
-    pos = input('Please enter position you want to put X: ')
+    pos = input('Please enter position you want to put O (1-9): ')
+    pos = int(pos)
+    pos = pos - 1
     if isEmptyLayerOne(pos):
-        
+        insertO(0, pos)
+        return True
     elif isEmptyLayerTwo(pos):
-
+        insertO(1, pos)
+        return True
     elif isEmptyLayerThree(pos):
+        insertO(2, pos)
+        return True
+    return False # All full
 
-    return ('Sorry, all full')
+def my_AI():
+    pos = random.randint(1,9)
+    print('AI\'s move is', pos)
+    pos = pos - 1
+    if isEmptyLayerOne(pos):
+        insertO(0, pos)
+        return True
+    elif isEmptyLayerTwo(pos):
+        insertO(1, pos)
+        return True
+    elif isEmptyLayerThree(pos):
+        insertO(2, pos)
+        return True
+    return False # All full
+
+def insertX(layer, pos):
+    my_board[layer][pos%3][pos//3] = 'X'
+
 def insertO(layer, pos):
-
-def spaceIsFree(pos):
-    return my_board[pos] == ' '
-
-
-def printBoard(my_board):
-    count = 0
-    for i in my_board:
-        count += 1
-        print('Layer ' + str(count))
-        for j in i:
-            print('')
-            for k in j:
-                print(k + '|', end='')
-                print('_', end='')
-        print('')
-
-def compMove():
-    pass
-
-
-def selectRandom(my_board):
-    pass
-
+    my_board[layer][pos%3][pos//3] = 'O'
 
 def isEmptyLayerOne(pos):
     #pos is from 0 - 8 but user chooses from 1 - 9
     row = pos//3
-    col = pos%3
-    if(my_board[0][row][col] == ' '):
+    col = pos % 3
+    if(my_board[0][col][row] == ' '):
         return True
     return False
-
 
 def isEmptyLayerTwo(pos):
     #pos is from 0 - 8 but user chooses from 1 - 9
     row = pos//3
-    col = pos%3
-    if(my_board[1][row][col] == ' '):
+    col = pos % 3
+    if(my_board[1][col][row] == ' '):
         return True
     return False
-
 
 def isEmptyLayerThree(pos):
     #pos is from 0 - 8 but user chooses from 1 - 9
     row = pos//3
-    col = pos%3
-    if(my_board[2][row][col] == ' '):
+    col = pos % 3
+    if(my_board[2][col][row] == ' '):
         return True
     return False
 
+def isFull():
+    emptySpace = 0
+    for i in my_board:
+        for j in i:
+            for k in j:
+                if k == ' ':
+                    emptySpace += 1
 
-
-def isFull(my_board):
-    if my_board.count(' ') > 1:  # Since we always have one blank element in board we must use > 1
+    if emptySpace > 1:  # Since we always have one blank element in board we must use > 1
         return False
     return True
 
+def PvPmode():
+    while( (not isFull()) ):
+        while ( (not playerOne()) ):
+            print('')
+
+        printBoard()
+        if ( win2D('X') ):
+            return 'Player One Wins'
+        elif( win3D('X') ):
+            return 'Player One Wins'
+
+        while ( (not playerTwo()) ):
+            print('')
+
+        printBoard()
+        if ( win2D('O') ):
+            return 'Player Two Wins'
+        elif( win3D('O') ):
+            return 'Player Two Wins'
+
+def AImode():
+    while( (not isFull()) ):
+        while ( (not playerOne()) ):
+            print('')
+
+        printBoard()
+        if ( win2D('X') ):
+            printBoard()
+            return 'Player One Wins'
+        elif ( win3D('X') ):
+            printBoard()
+            return 'Player One Wins'
+
+        while ( (not my_AI()) ):
+            print('')
+
+        printBoard()
+        if ( win2D('O') ):
+            printBoard()
+            return 'AI Wins'
+        elif( win3D('O') ):
+            printBoard()
+            return 'AI Wins'
+
+def printBoard():
+    count = 0
+    for i in my_board:
+        count += 1
+        print('Layer ' + str(count), end='')
+        for j in i:
+            print('')
+            for k in j:
+                print(k + '|', end='')
+        print('')
+        print('')
 
 def main():
     printHeader()
-
+    userChoice = input('Please choose your mode:\n1. Player vs Player\n2. Player vs AI')
+    indicator = ''
+    if(userChoice == '1'):
+        print(userChoice)
+        indicator = PvPmode()
+    elif(userChoice == '2'):
+        print(userChoice)
+        indicator = AImode()
+    return indicator
 
 if __name__ == "__main__":
-    printBoard(my_board)
+    print(main())
+    print('Final Board: ')
+    printBoard()
 
 
