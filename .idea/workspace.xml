@@ -31,12 +31,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="3277" />
+          <entry key="py" value="3818" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="3277" />
+          <entry key="Python" value="3818" />
         </counts>
       </usages-collector>
     </session>
@@ -46,23 +46,23 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Fontetoe.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="235" column="26" lean-forward="true" selection-start-line="235" selection-start-column="26" selection-end-line="235" selection-end-column="26" />
+            <state relative-caret-position="425">
+              <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
               <folding>
                 <element signature="e#72#81#0" expanded="true" />
-                <element signature="e#295#2363#0" />
-                <element signature="e#5536#5572#0" />
-                <element signature="e#7378#7613#0" />
-                <marker date="1556937385603" expanded="true" signature="267:268" ph="..." />
-                <marker date="1556937385603" expanded="true" signature="5187:5206" ph="..." />
-                <marker date="1556937385603" expanded="true" signature="6029:6364" ph="..." />
-                <marker date="1556937385603" expanded="true" signature="6388:6430" ph="..." />
-                <marker date="1556937385603" expanded="true" signature="6523:6528" ph="..." />
-                <marker date="1556937385603" expanded="true" signature="7063:7064" ph="..." />
-                <marker date="1556937385603" expanded="true" signature="7357:7358" ph="..." />
-                <marker date="1556937385603" expanded="true" signature="7401:7824" ph="..." />
-                <marker date="1556937385603" expanded="true" signature="8369:8631" ph="..." />
-                <marker date="1556937385603" expanded="true" signature="8642:8647" ph="..." />
+                <marker date="1556948866576" expanded="true" signature="885:886" ph="..." />
+                <marker date="1556948866576" expanded="true" signature="5854:5873" ph="..." />
+                <marker date="1556948866576" expanded="true" signature="5891:6058" ph="..." />
+                <marker date="1556948866576" expanded="true" signature="5891:6059" ph="..." />
+                <marker date="1556948866576" expanded="true" signature="5891:6061" ph="..." />
+                <marker date="1556948866576" expanded="true" signature="6942:7277" ph="..." />
+                <marker date="1556948866576" expanded="true" signature="7301:7343" ph="..." />
+                <marker date="1556948866576" expanded="true" signature="7436:7441" ph="..." />
+                <marker date="1556948866576" expanded="true" signature="7976:7977" ph="..." />
+                <marker date="1556948866576" expanded="true" signature="8270:8271" ph="..." />
+                <marker date="1556948866576" expanded="true" signature="8420:8932" ph="..." />
+                <marker date="1556948866576" expanded="true" signature="9561:9823" ph="..." />
+                <marker date="1556948866576" expanded="true" signature="9834:9839" ph="..." />
               </folding>
             </state>
           </provider>
@@ -101,9 +101,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="335" />
-    <option name="width" value="1590" />
-    <option name="height" value="1039" />
+    <option name="x" value="268" />
+    <option name="width" value="1272" />
+    <option name="height" value="831" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -181,15 +181,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20356907" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1213554" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30351907" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23025584" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -209,23 +209,23 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Fontetoe.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="235" column="26" lean-forward="true" selection-start-line="235" selection-start-column="26" selection-end-line="235" selection-end-column="26" />
+        <state relative-caret-position="425">
+          <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
           <folding>
             <element signature="e#72#81#0" expanded="true" />
-            <element signature="e#295#2363#0" />
-            <element signature="e#5536#5572#0" />
-            <element signature="e#7378#7613#0" />
-            <marker date="1556937385603" expanded="true" signature="267:268" ph="..." />
-            <marker date="1556937385603" expanded="true" signature="5187:5206" ph="..." />
-            <marker date="1556937385603" expanded="true" signature="6029:6364" ph="..." />
-            <marker date="1556937385603" expanded="true" signature="6388:6430" ph="..." />
-            <marker date="1556937385603" expanded="true" signature="6523:6528" ph="..." />
-            <marker date="1556937385603" expanded="true" signature="7063:7064" ph="..." />
-            <marker date="1556937385603" expanded="true" signature="7357:7358" ph="..." />
-            <marker date="1556937385603" expanded="true" signature="7401:7824" ph="..." />
-            <marker date="1556937385603" expanded="true" signature="8369:8631" ph="..." />
-            <marker date="1556937385603" expanded="true" signature="8642:8647" ph="..." />
+            <marker date="1556948866576" expanded="true" signature="885:886" ph="..." />
+            <marker date="1556948866576" expanded="true" signature="5854:5873" ph="..." />
+            <marker date="1556948866576" expanded="true" signature="5891:6058" ph="..." />
+            <marker date="1556948866576" expanded="true" signature="5891:6059" ph="..." />
+            <marker date="1556948866576" expanded="true" signature="5891:6061" ph="..." />
+            <marker date="1556948866576" expanded="true" signature="6942:7277" ph="..." />
+            <marker date="1556948866576" expanded="true" signature="7301:7343" ph="..." />
+            <marker date="1556948866576" expanded="true" signature="7436:7441" ph="..." />
+            <marker date="1556948866576" expanded="true" signature="7976:7977" ph="..." />
+            <marker date="1556948866576" expanded="true" signature="8270:8271" ph="..." />
+            <marker date="1556948866576" expanded="true" signature="8420:8932" ph="..." />
+            <marker date="1556948866576" expanded="true" signature="9561:9823" ph="..." />
+            <marker date="1556948866576" expanded="true" signature="9834:9839" ph="..." />
           </folding>
         </state>
       </provider>

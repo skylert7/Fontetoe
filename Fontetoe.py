@@ -1,26 +1,35 @@
-# Tic Tac Toe using Loops, funcitons, lists, and the min-max algorithm
+#   __          __  _                            _          ______          _       _             _
+#   \ \        / / | |                          | |        |  ____|        | |     | |           | |
+#    \ \  /\  / /__| | ___ ___  _ __ ___   ___  | |_ ___   | |__ ___  _ __ | |_ ___| |_ ___   ___| |
+#     \ \/  \/ / _ \ |/ __/ _ \| '_ ` _ \ / _ \ | __/ _ \  |  __/ _ \| '_ \| __/ _ \ __/ _ \ / _ \ |
+#      \  /\  /  __/ | (_| (_) | | | | | |  __/ | || (_) | | | | (_) | | | | ||  __/ || (_) |  __/_|
+#       \/  \/ \___|_|\___\___/|_| |_| |_|\___|  \__\___/  |_|  \___/|_| |_|\__\___|\__\___/ \___(_)
+#
+#
+# Tic Tac Toe using Loops, funtions, lists, and the min-max algorithm
 
 import os
-import time
 import random
 
 # Defining the board
 # Tic-tac-toe 3x3
 dimension = 3
+#[layer][row][column]
 my_board = [[[' ' for col in range(dimension)] for col in range(dimension)] for row in range(dimension)]
 
 
 
+#Condition to win in 2D
 def win2D(symbol):
     if ( (my_board[0][0][0] == my_board[0][1][0] == my_board[0][2][0] == symbol)  # Flat Horizontal
     or (my_board[0][0][1] == my_board[0][1][1] == my_board[0][2][1] == symbol)  # Flat Horizontal
-    or (my_board[0][2][2] == my_board[0][2][2] == my_board[0][2][2] == symbol)  # Flat Horizontal
+    or (my_board[0][0][2] == my_board[0][1][2] == my_board[0][2][2] == symbol)  # Flat Horizontal
     or (my_board[1][0][0] == my_board[1][1][0] == my_board[1][2][0] == symbol)  # Flat Horizontal
     or (my_board[1][0][1] == my_board[1][1][1] == my_board[1][2][1] == symbol)  # Flat Horizontal
-    or (my_board[1][2][2] == my_board[1][2][2] == my_board[1][2][2] == symbol)  # Flat Horizontal
+    or (my_board[1][0][2] == my_board[1][1][2] == my_board[1][2][2] == symbol)  # Flat Horizontal
     or (my_board[2][0][0] == my_board[2][1][0] == my_board[2][2][0] == symbol)  # Flat Horizontal
     or (my_board[2][0][1] == my_board[2][1][1] == my_board[2][2][1] == symbol)  # Flat Horizontal
-    or (my_board[2][2][2] == my_board[2][2][2] == my_board[2][2][2] == symbol)  # Flat Horizontal
+    or (my_board[2][0][2] == my_board[2][1][2] == my_board[2][2][2] == symbol)  # Flat Horizontal
 
     or (my_board[0][0][0] == my_board[0][0][1] == my_board[0][0][2] == symbol)  # Flat Vertical
     or (my_board[0][1][0] == my_board[0][1][1] == my_board[0][1][2] == symbol)  # Flat Vertical
@@ -41,6 +50,8 @@ def win2D(symbol):
         return True
     return False
 
+
+#Condition to win in 3D
 def win3D(symbol):
     if ( (my_board[0][0][0] == my_board[1][0][0] == my_board[2][0][0] == symbol)  # 3D Tower 0
     or (my_board[0][1][0] == my_board[1][1][0] == my_board[2][1][0] == symbol ) # 3D Tower 1
@@ -74,11 +85,17 @@ def win3D(symbol):
     return False
 
 def printHeader():
-    print("""Welcome to Tic Tac Toe!""")
+    print('------------------------ Welcome to Fontetoe ------------------------')
+    print('                         Your 3D Tic-Tac-Toe                         ')
+
+
 
 def playerOne():
-    pos = input('Please enter position you want to put X (1-9): ')
-    pos = int(pos)
+    pos = 20
+    while( pos not in range (1, 9) ):
+        pos = input('Please enter position you want to put X (1-9): ')
+        pos = int(pos)
+
     pos = pos - 1
     if isEmptyLayerOne(pos):
         insertX(0, pos)
@@ -92,8 +109,10 @@ def playerOne():
     return False # All full
 
 def playerTwo():
-    pos = input('Please enter position you want to put O (1-9): ')
-    pos = int(pos)
+    pos = 20
+    while( pos not in range (1, 9) ):
+        pos = input('Please enter position you want to put X (1-9): ')
+        pos = int(pos)
     pos = pos - 1
     if isEmptyLayerOne(pos):
         insertO(0, pos)
@@ -122,16 +141,16 @@ def my_AI():
     return False # All full
 
 def insertX(layer, pos):
-    my_board[layer][pos%3][pos//3] = 'X'
+    my_board[layer][pos//3][pos%3] = 'X'
 
 def insertO(layer, pos):
-    my_board[layer][pos%3][pos//3] = 'O'
+    my_board[layer][pos//3][pos%3] = 'O'
 
 def isEmptyLayerOne(pos):
     #pos is from 0 - 8 but user chooses from 1 - 9
     row = pos//3
     col = pos % 3
-    if(my_board[0][col][row] == ' '):
+    if(my_board[0][row][col] == ' '):
         return True
     return False
 
@@ -139,7 +158,7 @@ def isEmptyLayerTwo(pos):
     #pos is from 0 - 8 but user chooses from 1 - 9
     row = pos//3
     col = pos % 3
-    if(my_board[1][col][row] == ' '):
+    if(my_board[1][row][col] == ' '):
         return True
     return False
 
@@ -147,7 +166,7 @@ def isEmptyLayerThree(pos):
     #pos is from 0 - 8 but user chooses from 1 - 9
     row = pos//3
     col = pos % 3
-    if(my_board[2][col][row] == ' '):
+    if(my_board[2][row][col] == ' '):
         return True
     return False
 
@@ -165,47 +184,56 @@ def isFull():
 
 def PvPmode():
     while( (not isFull()) ):
+        # ---------------- Player one turn ----------------
+        os.system('cls')
+        printBoard()
         while ( (not playerOne()) ):
             print('')
 
-        printBoard()
         if ( win2D('X') ):
             return 'Player One Wins'
         elif( win3D('X') ):
             return 'Player One Wins'
 
+        # ---------------- Player two turn ----------------
+        os.system('cls')
+        printBoard()
         while ( (not playerTwo()) ):
             print('')
 
-        printBoard()
         if ( win2D('O') ):
             return 'Player Two Wins'
         elif( win3D('O') ):
             return 'Player Two Wins'
+
+    return 'Board full'
 
 def AImode():
     while( (not isFull()) ):
+        # ---------------- Player turn ----------------
+        os.system('cls')
+        printBoard()
         while ( (not playerOne()) ):
             print('')
 
-        printBoard()
         if ( win2D('X') ):
-            printBoard()
             return 'Player One Wins'
         elif ( win3D('X') ):
-            printBoard()
             return 'Player One Wins'
 
+
+        # ---------------- AI turn ----------------
+        os.system('cls')
+        printBoard()
         while ( (not my_AI()) ):
             print('')
 
-        printBoard()
         if ( win2D('O') ):
-            printBoard()
             return 'AI Wins'
         elif( win3D('O') ):
-            printBoard()
             return 'AI Wins'
+
+    return 'Board full'
 
 def printBoard():
     count = 0
@@ -221,7 +249,10 @@ def printBoard():
 
 def main():
     printHeader()
-    userChoice = input('Please choose your mode:\n1. Player vs Player\n2. Player vs AI')
+    userChoice = 'random'
+    while (userChoice not in ['1', '2']):
+        userChoice = input('Please choose your mode:\n1. Player vs Player\n2. Player vs AI\n')
+
     indicator = ''
     if(userChoice == '1'):
         print(userChoice)
