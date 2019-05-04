@@ -94,8 +94,10 @@ def playerOne():
     pos = 20
     while( pos not in range (1, 9) ):
         pos = input('Please enter position you want to put X (1-9): ')
-        pos = int(pos)
-
+        try:
+            pos = int(pos)
+        except:
+            print('', end ='')
     pos = pos - 1
     if isEmptyLayerOne(pos):
         insertX(0, pos)
@@ -112,7 +114,10 @@ def playerTwo():
     pos = 20
     while( pos not in range (1, 9) ):
         pos = input('Please enter position you want to put X (1-9): ')
-        pos = int(pos)
+        try:
+            pos = int(pos)
+        except:
+            print('', end ='')
     pos = pos - 1
     if isEmptyLayerOne(pos):
         insertO(0, pos)
@@ -186,6 +191,7 @@ def PvPmode():
     while( (not isFull()) ):
         # ---------------- Player one turn ----------------
         os.system('cls')
+        printHeader()
         printBoard()
         while ( (not playerOne()) ):
             print('')
@@ -197,6 +203,7 @@ def PvPmode():
 
         # ---------------- Player two turn ----------------
         os.system('cls')
+        printHeader()
         printBoard()
         while ( (not playerTwo()) ):
             print('')
@@ -212,6 +219,7 @@ def AImode():
     while( (not isFull()) ):
         # ---------------- Player turn ----------------
         os.system('cls')
+        printHeader()
         printBoard()
         while ( (not playerOne()) ):
             print('')
@@ -224,6 +232,7 @@ def AImode():
 
         # ---------------- AI turn ----------------
         os.system('cls')
+        printHeader()
         printBoard()
         while ( (not my_AI()) ):
             print('')
@@ -255,10 +264,8 @@ def main():
 
     indicator = ''
     if(userChoice == '1'):
-        print(userChoice)
         indicator = PvPmode()
     elif(userChoice == '2'):
-        print(userChoice)
         indicator = AImode()
     return indicator
 
