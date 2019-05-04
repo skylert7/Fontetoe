@@ -2,7 +2,7 @@
 
 This is a version of Tic Tac Toe
 
-#Instructions to run
+# Instructions to run
 - This python code runs on Python 3.5 and up. It WON’T WORK on Python 2.7 or lower
 - Open terminal, navigate to our Fontetoe’s folder and run the command:
   - py Fontetoe.py
