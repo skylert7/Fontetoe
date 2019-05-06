@@ -93,7 +93,7 @@ def printHeader():
 def playerOne():
     pos = 20
     print('Player One Turn: ')
-    while( pos not in range (1, 9) ):
+    while( pos not in range (1, 10) ):
         pos = input('Please enter position you want to put X (1-9): ')
         try:
             pos = int(pos)
@@ -114,7 +114,7 @@ def playerOne():
 def playerTwo():
     pos = 20
     print('Player Two Turn: ')
-    while( pos not in range (1, 9) ):
+    while( pos not in range (1, 10) ):
         pos = input('Please enter position you want to put O (1-9): ')
         try:
             pos = int(pos)
